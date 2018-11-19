@@ -8,7 +8,7 @@ export class HandlerService {
   constructor(private http:Http) {
     this.headers.append('Content-Type', 'application/x-www-form-urlencoded');
   }
-  private url = "http://localhost/canal_backend/";
+  private url = "http://localhost/HandleCanal/";
 
   private headers=new Headers();
   public datas:any;

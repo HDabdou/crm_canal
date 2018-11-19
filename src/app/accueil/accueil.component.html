@@ -20,16 +20,16 @@
               </thead>
               <tbody>
                      <tr *ngFor="let l of listeAlert; let i=index">
-                      <td *ngIf="l.activer == 0"><strong *ngIf="getInfo1(l.requete,'requete') == 1" >Réabonnement</strong> <strong *ngIf="getInfo1(l.requete,'requete') == 2" >Recrutement</strong></td>
-                      <td *ngIf="l.activer == 0"><strong>{{getInfo1(l.requete,'nom')}}</strong></td>
-                      <td *ngIf="l.activer == 0"><strong>{{getInfo1(l.requete,'prenom')}}</strong></td>
-                      <td *ngIf="l.activer == 0"><strong>{{getInfo1(l.requete,'tel')}}</strong></td>
-                      <td *ngIf="l.activer == 0"><strong>{{getInfo1(l.requete,'NumDecoudeur')}}</strong></td>
-                      <td *ngIf="l.activer == 0"><strong>{{getInfo1(l.requete,'Formule')}}</strong></td>
-                      <td *ngIf="l.activer == 0"><strong>{{getInfo1(l.requete,'nombreMois')}}</strong></td>
-                      <td *ngIf="l.activer == 0"><strong>{{getInfo1(l.requete,'prix')}}</strong></td>
-                      <td *ngIf="l.activer == 0"><strong>{{l.date}}</strong></td>
-                      <td *ngIf="l.activer == 0"><a class="btn btn-success btn-sm" (click)="getAbonnement(i);openModal(template)" style="color: white;cursor: pointer;">Traiter</a> </td>
+                      <td *ngIf="l.handled == 0"><strong *ngIf="getInfo1(l.requete,'requete') == 1" >Réabonnement</strong> <strong *ngIf="getInfo1(l.requete,'requete') == 2" >Recrutement</strong></td>
+                      <td *ngIf="l.handled == 0"><strong>{{getInfo1(l.requete,'nom')}}</strong></td>
+                      <td *ngIf="l.handled == 0"><strong>{{getInfo1(l.requete,'prenom')}}</strong></td>
+                      <td *ngIf="l.handled == 0"><strong>{{getInfo1(l.requete,'tel')}}</strong></td>
+                      <td *ngIf="l.handled == 0"><strong>{{getInfo1(l.requete,'NumDecoudeur')}}</strong></td>
+                      <td *ngIf="l.handled == 0"><strong>{{getInfo1(l.requete,'Formule')}}</strong></td>
+                      <td *ngIf="l.handled == 0"><strong>{{getInfo1(l.requete,'nombreMois')}}</strong></td>
+                      <td *ngIf="l.handled == 0"><strong>{{getInfo1(l.requete,'prix')}}</strong></td>
+                      <td *ngIf="l.handled == 0"><strong>{{l.dateEnregistrement}}</strong></td>
+                      <td *ngIf="l.handled == 0"><a class="btn btn-success btn-sm" (click)="getAbonnement(i);openModal(template)" style="color: white;cursor: pointer;">Traiter</a> </td>
                     </tr>
                   </tbody>
               </table>
@@ -50,34 +50,34 @@
                 <div *ngIf="requete == 1">
                 <ul class="list-group">
                     <li class="list-group-item" ><h4 style="text-transform: uppercase;color: #36a9e0;font-size: -webkit-xxx-large;">Réabonnement</h4></li>
-                    <li class="list-group-item"><strong>Nom : {{getInfo1(this.abonnementChoisie.requete,"nom")}}</strong></li>
-                    <li class="list-group-item"><strong>Prenom : {{getInfo1(this.abonnementChoisie.requete,"prenom")}}</strong></li>
-                    <li class="list-group-item"><strong>Numéro Abonner : {{getInfo1(this.abonnementChoisie.requete,"NumAbonner")}}</strong></li>
-                    <li class="list-group-item"><strong>Téléphone : {{getInfo1(this.abonnementChoisie.requete,"tel")}}</strong></li>
-                    <li class="list-group-item"><strong>Numéro Découdeur : {{getInfo1(this.abonnementChoisie.requete,"NumDecoudeur")}}</strong></li>
-                    <li class="list-group-item"><strong>Numéro carte : {{getInfo1(this.abonnementChoisie.requete,"numCarte")}}</strong></li>
-                    <li class="list-group-item"><strong>Formule : {{getInfo1(this.abonnementChoisie.requete,"Formule")}}</strong></li>
-                    <li class="list-group-item"><strong>prix : {{getInfo1(this.abonnementChoisie.requete,"prix")}}</strong></li>
-                    <li class="list-group-item"><strong>Nombre de mois : {{getInfo1(this.abonnementChoisie.requete,"nombreMois")}}</strong></li>
-                    <li class="list-group-item"><strong>Offre opetionnelle : {{getInfo1(this.abonnementChoisie.requete,"charme")}} {{getInfo1(this.abonnementChoisie.requete,"pvr")}} {{getInfo1(this.abonnementChoisie.requete,"deuxiemeEcran")}}</strong></li>
+                    <li class="list-group-item"><strong><span style="text-transform: uppercase;">Nom :</span>   {{getInfo1(this.abonnementChoisie.requete,"nom")}}</strong></li>
+                    <li class="list-group-item"><strong><span style="text-transform: uppercase;">Prenom :</span>  {{getInfo1(this.abonnementChoisie.requete,"prenom")}}</strong></li>
+                    <li class="list-group-item"><strong><span style="text-transform: uppercase;">Numero Abonner</span>  {{getInfo1(this.abonnementChoisie.requete,"NumAbonner")}}</strong></li>
+                    <li class="list-group-item"><strong><span style="text-transform: uppercase;">Telephone :</span>  {{getInfo1(this.abonnementChoisie.requete,"tel")}}</strong></li>
+                    <li class="list-group-item"><strong><span style="text-transform: uppercase;">Numero Decoudeur :</span> {{getInfo1(this.abonnementChoisie.requete,"NumDecoudeur")}}</strong></li>
+                    <li class="list-group-item"><strong><span style="text-transform: uppercase;">Numero carte :</span>  {{getInfo1(this.abonnementChoisie.requete,"numCarte")}}</strong></li>
+                    <li class="list-group-item"><strong><span style="text-transform: uppercase;">Formule :</span>  {{getInfo1(this.abonnementChoisie.requete,"Formule")}}</strong></li>
+                    <li class="list-group-item"><strong><span style="text-transform: uppercase;">prix :</span>  {{getInfo1(this.abonnementChoisie.requete,"prix")}}</strong></li>
+                    <li class="list-group-item"><strong><span style="text-transform: uppercase;">Nombre de mois :</span>  {{getInfo1(this.abonnementChoisie.requete,"nombreMois")}}</strong></li>
+                    <li class="list-group-item"><strong><span style="text-transform: uppercase;">Offre opetionnelle :</span>  {{getInfo1(this.abonnementChoisie.requete,"charme")}} {{getInfo1(this.abonnementChoisie.requete,"pvr")}} {{getInfo1(this.abonnementChoisie.requete,"deuxiemeEcran")}}</strong></li>
                 </ul>
               </div>
               <div *ngIf="requete == 2">
                   <ul class="list-group">
                       <li class="list-group-item" ><h4 style="text-transform: uppercase;color: #36a9e0;font-size: -webkit-xxx-large;">Recrutement</h4></li>
-                      <li class="list-group-item"><strong>Titre : {{getInfo1(this.abonnementChoisie.requete,"titre")}}</strong></li>
-                      <li class="list-group-item"><strong>Nom : {{getInfo1(this.abonnementChoisie.requete,"nom")}}</strong></li>
-                      <li class="list-group-item"><strong>Prenom : {{getInfo1(this.abonnementChoisie.requete,"prenom")}}</strong></li>
-                      <li class="list-group-item"><strong>CNI : {{getInfo1(this.abonnementChoisie.requete,"cni")}}</strong></li>
-                      <li class="list-group-item"><strong>Ville : {{getInfo1(this.abonnementChoisie.requete,"ville")}}</strong></li>
-                      <li class="list-group-item"><strong>Adresse : {{getInfo1(this.abonnementChoisie.requete,"adresse")}}</strong></li>
-                      <li class="list-group-item"><strong>E-mail : {{getInfo1(this.abonnementChoisie.requete,"email")}}</strong></li>
-                      <li class="list-group-item"><strong>Téléphone : {{getInfo1(this.abonnementChoisie.requete,"tel")}}</strong></li>
-                      <li class="list-group-item"><strong>Numéro Découdeur : {{getInfo1(this.abonnementChoisie.requete,"NumDecoudeur")}}</strong></li>
-                      <li class="list-group-item"><strong>Formule : {{getInfo1(this.abonnementChoisie.requete,"Formule")}}</strong></li>
-                      <li class="list-group-item"><strong>prix : {{getInfo1(this.abonnementChoisie.requete,"prix")}}</strong></li>
-                      <li class="list-group-item"><strong>Nombre de mois : {{getInfo1(this.abonnementChoisie.requete,"nombreMois")}}</strong></li>
-                      <li class="list-group-item"><strong>Offre opetionnelle : {{getInfo1(this.abonnementChoisie.requete,"charme")}} {{getInfo1(this.abonnementChoisie.requete,"pvr")}} {{getInfo1(this.abonnementChoisie.requete,"deuxiemeEcran")}}</strong></li>
+                      <li class="list-group-item"><strong><span >Titre :</span> {{getInfo1(this.abonnementChoisie.requete,"titre")}}</strong></li>
+                      <li class="list-group-item"><strong><span >Nom :</span> {{getInfo1(this.abonnementChoisie.requete,"nom")}}</strong></li>
+                      <li class="list-group-item"><strong><span >Prenom :</span> {{getInfo1(this.abonnementChoisie.requete,"prenom")}}</strong></li>
+                      <li class="list-group-item"><strong><span >CNI :</span> {{getInfo1(this.abonnementChoisie.requete,"cni")}}</strong></li>
+                      <li class="list-group-item"><strong><span >Ville : </span>{{getInfo1(this.abonnementChoisie.requete,"ville")}}</strong></li>
+                      <li class="list-group-item"><strong><span >Adresse : </span>{{getInfo1(this.abonnementChoisie.requete,"adresse")}}</strong></li>
+                      <li class="list-group-item"><strong><span >E-mail :</span> {{getInfo1(this.abonnementChoisie.requete,"email")}}</strong></li>
+                      <li class="list-group-item"><strong><span >Téléphone : </span>{{getInfo1(this.abonnementChoisie.requete,"tel")}}</strong></li>
+                      <li class="list-group-item"><strong><span >Numéro Découdeur :</span> {{getInfo1(this.abonnementChoisie.requete,"NumDecoudeur")}}</strong></li>
+                      <li class="list-group-item"><strong><span >Formule :</span> {{getInfo1(this.abonnementChoisie.requete,"Formule")}}</strong></li>
+                      <li class="list-group-item"><strong><span >prix :</span> {{getInfo1(this.abonnementChoisie.requete,"prix")}}</strong></li>
+                      <li class="list-group-item"><strong><span >Nombre de mois :</span> {{getInfo1(this.abonnementChoisie.requete,"nombreMois")}}</strong></li>
+                      <li class="list-group-item"><strong><span >Offre opetionnelle :</span> {{getInfo1(this.abonnementChoisie.requete,"charme")}} {{getInfo1(this.abonnementChoisie.requete,"pvr")}} {{getInfo1(this.abonnementChoisie.requete,"deuxiemeEcran")}}</strong></li>
                   </ul>
                 </div>
            <div class="form-group">
